@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $host = 'localhost';
     $dbname = 'Project';
     $user = 'postgres';
-    $password_db = '4wnsdXJ1';
+    $password_db = 'XXXXXXXXX';
 
     try {
         $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
