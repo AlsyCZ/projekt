@@ -3,7 +3,7 @@ session_start();
 $host = 'localhost';
 $dbname = 'Project';
 $user = 'postgres';
-$password_db = '4wnsdXJ1';
+$password_db = 'XXXXXXXX';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = $_POST['comment'];
