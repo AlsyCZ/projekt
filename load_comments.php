@@ -4,7 +4,7 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 $host = 'localhost';
 $dbname = 'Project';
 $user = 'postgres';
-$password_db = '4wnsdXJ1';
+$password_db = 'XXXXXXXX';
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
