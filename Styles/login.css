@@ -1,0 +1,72 @@
+.btn-primary,
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:focus {
+        background-color: black !important;
+        border-color: black !important;
+        color: #fff !important;
+    }
+        body {
+            background-image: url('../background_img.png');
+            background-size: auto;
+            color: #fff;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+        }
+        .center-container {
+            background-color: rgb(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            width: 40%;
+            border-radius: 10px;
+            margin-left: 30%;
+            margin-top: 10%;
+        }
+        
+        .back-home-btn, .register-btn, label[for="account"] {
+            margin-top: 20%;
+            background-color:black;
+            color: #fff;
+            border: 3px solid black;
+            vertical-align: baseline;
+            font-size: 18px;
+            padding: 12px 20px;
+        }
+        form{
+            width: 150%;
+            margin-top: 5%;
+            margin-left: -25%;
+        }
+        .back-home-btn:hover, .register-btn:hover, .submit:hover {
+            background-color: black;
+            border-color: black;
+        }
+
+        .submit {
+            border-color: black;
+            background-color:black;
+            font-size: 24px;
+            padding: 16px 24px;
+        }
+        label[for="account"] {
+            background-color: transparent;
+            border: none;
+        }
+        .textik{
+            position: absolute;
+            left:40%;
+            top: 7%;
+        }
+        
+        .page-transition {
+            animation: fadeIn 0.3s; 
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        } 
+        .row{
+            margin-left: -20%;
+            margin-bottom: -10%;
+            width: 140%;
+        }

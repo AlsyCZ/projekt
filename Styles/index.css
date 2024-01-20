@@ -1,0 +1,180 @@
+body {
+    background-image: url('../background_img.png');
+    background-size: auto;
+    color: #fff!important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+.bg-light   {
+    background-color: transparent!important;
+}
+.col-md-6 {
+    max-width: 100%;
+}
+.center-container {
+    background-color: rgb(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 4%;
+    margin-top: -12%;
+    width: 40%;
+}
+.center-container2 {
+    background-color: rgb(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 48%;
+    margin-top: 4%;
+    width: 48%;
+    font-size: 25px;
+}
+.navbar-light .navbar-brand  {
+    color: white;
+}
+#userDropdown{
+    color:white;
+    font-size: 1.25rem;
+    margin-top: -3%;
+}
+.navbar-light:hover .navbar-brand:hover  {
+    color: white;
+}
+.custom-dropdown {
+    background-color: #000;
+}
+.custom-dropdown a {
+    color: #fff;
+    font-size: 19px;
+}
+.custom-dropdown a:hover {
+    background-color: #fff;
+    color: #000;
+}
+table {
+    width: 98%;
+    margin-left:1%;
+    border-collapse: collapse;
+    margin-top: 0%;
+}
+
+table, th, td {
+    border: 3px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+td {
+    background-color: rgb(1,28,48);
+}
+
+th {
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+.urhw{
+    margin-top: 0%;
+    margin-left:5%;
+}
+.udaje{
+    margin-top: 4%;
+    margin-left:5%;
+}
+button{
+    height: 20%;
+    width: 20%;
+    position: relative;
+}
+.containeros{
+    width:100%;
+}
+.btn1{
+    position: absolute;
+    border-radius: 15px;
+    left: 47%;
+    bottom: 24%;
+    width: 24%;
+    background-color: rgb(0, 52, 86, 0.95);
+    border: 3px solid #030f1b;
+    font-size: 35px;
+    height: 10%;
+}
+.btn2{
+    position: absolute;
+    border-radius: 15px;
+    left: 73%;
+    bottom: 24%;
+    width: 24%;
+    background-color: rgb(0, 52, 86, 0.95);
+    border: 3px solid #030f1b;
+    font-size: 35px;
+    height: 10%;
+}
+.btn1:hover,.btn2:hover{
+    background-color: rgb(0, 52, 86, 0.95);
+    border: 3px solid rgb(0, 52, 86, 0.95);
+}
+.texthelp{
+    position: absolute;
+    left: 10%;
+    font-size: 40px;
+    bottom: 17%;
+}
+.page-transition {
+    animation: fadeIn 0.3s; 
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}      
+.text-center{
+    z-index: 1;
+    position: relative;
+}
+.register-btn, label[for="account"] {
+    margin-top: 20%;
+    background-color:black;
+    color: #fff;
+    border: 3px solid black;
+    vertical-align: baseline;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+form{
+    width: 150%;
+    margin-top: 5%;
+    margin-left: -25%;
+}
+.register-btn:hover, .submit:hover {
+    background-color: black;
+    border-color: black;
+}
+
+.submit {
+    border-color: black;
+    position: relative;
+    width: 100%;
+    background-color:black;
+    font-size: 24px;
+    padding: 16px 24px;
+    z-index: 2;
+}
+label[for="account"] {
+    background-color: transparent;
+    border: none;
+}
+.textik{
+    position: absolute;
+    left:40%;
+    top: 7%;
+}
+.row{
+    margin-left: -20%;
+    margin-bottom: -10%;
+    width: 140%;
+}

@@ -1,0 +1,176 @@
+body {
+    background-image: url('../background_img.png');
+    background-size: auto;
+    color: #fff!important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+.bg-light   {
+    background-color: transparent!important;
+}
+.col-md-6 {
+    max-width: 130%;
+}
+.center-container {
+    background-color: rgb(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    width: 90%;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-left: 5%;
+    
+}
+.center-container2 {
+    background-color: rgb(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    width: 90%;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.center-container3 {
+    background-color: rgb(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    width: 55%;
+    border-radius: 10px;
+    margin-top: 10%;
+    margin-left: 8%;
+}
+.center-container4 {
+    background-color: rgb(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    width: 20%;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: -14%;
+    margin-left: 70%;
+}
+.navbar-light .navbar-brand  {
+    color: white;
+}
+#userDropdown{
+    color:white;
+    font-size: 1.25rem;
+    margin-top: -3%;
+}
+.navbar-light:hover .navbar-brand:hover  {
+    color: white;
+}
+.custom-dropdown {
+    background-color: #000;
+}
+.custom-dropdown a {
+    color: #fff;
+    font-size: 19px;
+}
+.custom-dropdown a:hover {
+    background-color: #fff;
+    color: #000;
+}
+table {
+    width: 98%;
+    margin-left:1%;
+    border-collapse: collapse;
+    margin-top: 0%;
+}
+
+table, th, td {
+    border: 3px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+td {
+    background-color: rgb(1,28,48);
+}
+
+th {
+    background-color: black;
+    color: white;
+    top: 0;
+}
+.hw{
+    margin-top: 0%;
+    margin-left:5%;
+}
+.choosegametext{
+    position: absolute;
+    left: 26%;
+    top:10%;
+}
+.selectgame {
+    position: absolute;
+    border-radius: 15px;
+    padding-left: 10px;
+    left: 40%;
+    top: 8%;
+    width: auto;
+    background-color: rgb(0, 52, 86, 0.95);
+    border: 3px solid black;
+    font-size: 35px;
+    height: 10%;
+    color: white;
+}
+.selectgame::-ms-expand {
+    display: none;
+}
+.selectgame:focus,.selectgame:hover,
+.selectgame:active {
+    background-color: #003456;
+}
+
+.btn1{
+    border-radius: 15px;
+    width: 25%;
+    background-color: black;
+    border: 3px solid black;
+    font-size: 35px;
+    height: 10%;
+    margin-left: 5%;
+}
+.btn-primary:hover{
+    background-color: black;
+    border: 3px solid black;
+}
+.btn-primary:disabled {
+    background-color: black;
+    border-color: black;
+}
+.formcontrol{
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 15px;
+}
+#game_image{
+    width: auto;
+    height: 200px;
+}
+.comment {
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+}
+
+.comment img {
+border-radius: 50%;
+margin-right: 10px;
+width: 50px;
+height: 50px;
+}
+.comment p {
+margin-top: 15px;;
+}
+.page-transition {
+    animation: fadeIn 0.5s; 
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
