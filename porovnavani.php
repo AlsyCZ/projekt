@@ -62,7 +62,7 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 <div class="page-transition">
 <h1 class="choosegametext">Vyber si hru:</h1>
 <select class="selectgame" name="selectgame" id="selectgame">
-        <!-- Optiony budou načteny dynamicky pomocí AJAX -->
+        <!-- Options budou načteny dynamicky pomocí AJAX -->
     </select>
 
 <div class="col-md-6 center-container3">
