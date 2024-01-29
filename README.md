@@ -34,5 +34,5 @@ I'm a beginner full-stack developer, also enthusiast to PC hardware. 💻
 
 ## Support and feedback
 
-For support or feedback, email amrazemk@gmail.com or join our Slack channel.
+For support or feedback, email amrazemk@gmail.com.
 
