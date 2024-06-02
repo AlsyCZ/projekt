@@ -1,0 +1,84 @@
+body {
+    background-image: url('../background_img.png');
+    background-size: auto;
+    color: #fff!important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+.bg-light {
+    background-color: transparent!important;
+}
+.center-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 6% auto;
+    height: auto;
+}
+.navbar-light .navbar-brand  {
+    color: white;
+}
+#userDropdown{
+    color:white;
+    font-size: 1.25rem;
+    margin-top: -3%;
+}
+.navbar-light:hover .navbar-brand:hover  {
+    color: white;
+}
+.page-transition {
+    animation: fadeIn 0.3s; 
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+} 
+.backhomebtn {
+    background-color: black;
+    color: #fff;
+    border: 3px solid black;
+    font-size: 20px;
+    padding: 8px 20px;
+    width: 100%;
+    border-radius: 8px;
+}
+.backhomebtn2 {
+    background-color: black;
+    color: #fff;
+    border: 3px solid black;
+    font-size: 20px;
+    padding: 8px 20px;
+    width: 15%;
+    float:right;
+    border-radius: 8px;
+}
+.backhomebtn:hover {
+    background-color: black;
+    border-color: black;
+}
+.choosegametext{
+    margin-top: 3%;
+    font-size: 24px;
+}
+.gametext{
+    font-size: 35px;
+}
+#selectgame {
+    border-radius: 15px;
+    padding-left: 10px;
+    width: 100%;
+    background-color: rgb(0, 52, 86, 0.95);
+    border: 3px solid black;
+    font-size: 20px;
+    color: white;
+    margin-top: 2%;
+    height: 50px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+#selectgame:focus, #selectgame:hover, #selectgame:active {
+    background-color: #003456;
+}

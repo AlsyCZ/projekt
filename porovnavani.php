@@ -3,8 +3,31 @@ session_start();
 $loggedInUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
-?>
 
+$host = 'localhost';
+$dbname = 'Project';
+$user = 'postgres';
+$password_db = '4wnsdXJ1';
+
+try {
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $current_xp = 0;
+    if ($loggedInRole == 'user') {
+        $sql = "SELECT xp FROM uzivatele WHERE id = :userId";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result !== false) {
+            $current_xp = $result['xp'];
+        }
+    }
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +54,15 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand hardwarehub" href="index.php">HardwareHub</a>
+    <?php
+if ($loggedInRole == 'user') {
+    echo '<div class="xp-bar-container">';
+    echo '<label for="xp" class="urxp">Tvoje XP:</label>';
+    echo '<div class="progress">';
+    echo '<div class="progress-bar progress-bar-striped progress-bar-animated xp-bar" role="progressbar" aria-valuenow="' . $current_xp . '" aria-valuemin="0" aria-valuemax="100" style="width: ' . $current_xp . '%;"></div></div>';
+    echo '</div>';
+}
+?>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -62,32 +94,33 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 <div class="page-transition">
 <h1 class="choosegametext">Vyber si hru:</h1>
 <select class="selectgame" name="selectgame" id="selectgame">
-        <!-- Optiony budou načteny dynamicky pomocí AJAX -->
+        <!-- AJAX -->
     </select>
-
-<div class="col-md-6 center-container3">
+<div class="containerimgtext">
+<div class="center-container3">
 <h2 class="hw">O hře:</h2>
 <table id="load_gamedata_table">
-        <!-- Tabulka bude naplněna dynamicky pomocí AJAX -->
+        <!-- AJAX -->
     </table>
 </div>
 
-<div class="col-md-6 center-container4">
+<div class="center-container4">
 <img id="game_image" src="images/rd2.jpg" alt="images" loading="lazy">
-    <!-- Obrázky budou naplněny dynamicky pomocí AJAX -->
+    <!-- AJAX -->
+</div>
 </div>
 
 <div class="col-md-6 center-container">
 <h2 class="hw">Tabulky s hardwarem:</h2>
 <table id="load_data_table">
-            <!-- Tabulka bude naplněna dynamicky pomocí AJAX -->
+            <!-- AJAX -->
         </table>
 </div>
 
 <div class="col-md-6 center-container2">
         <h2>Komentáře</h2> 
         <div id="commentsContainer">
-            <!-- Zde budou načteny komentáře pomocí AJAX -->
+            <!-- AJAX -->
         </div>
     </div>
 

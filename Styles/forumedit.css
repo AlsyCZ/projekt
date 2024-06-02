@@ -1,0 +1,208 @@
+body {
+    background-image: url('../background_img.png');
+    background-size: auto;
+    color: #fff!important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+.bg-light   {
+    background-color: transparent!important;
+}
+.center-container {
+    background-color: rgb(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 5%;
+    width: 90%;
+    margin-top: 1%;
+    height: 800px;
+}
+
+.search-container {
+    position: sticky;
+    top: 2%;
+    width: 100%;
+}
+
+.flexcontainer {
+    display: grid;
+    position: absolute;
+    top: 10%;
+    width: 90%;
+    left: 5%;
+    max-height: 700px;
+    grid-template-columns: auto;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+
+.navbar-light .navbar-brand  {
+    color: white;
+}
+#userDropdown{
+    color:white;
+    font-size: 1.25rem;
+    margin-top: -3%;
+}
+.navbar-light:hover .navbar-brand:hover  {
+    color: white;
+}
+.page-transition {
+    animation: fadeIn 0.3s; 
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+
+} 
+.row{
+    margin-left: 2.5%;
+    margin-bottom: 10%;
+    width: 160%;
+    display: block;
+}
+  
+  .search {
+    width: 64%;
+    padding:12px;
+    margin-left: 4%;
+    border:none;
+    border-radius: 4px 0 0 4px;
+    color: white;
+    background-color: black!important;
+  }
+
+  .searchbutton {
+    position: relative;
+    padding: 12px;
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  .search button i {
+    font-size: 20px;
+  }
+
+  .backhomebtn {
+    background-color: rgba(0, 29, 48, 0.95);
+    color: #fff;
+    border: 3px solid black;
+    vertical-align: baseline;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 5%;
+    border: none;
+    right: 4%;
+    padding: 8px 20px!important;
+    width: 20%!important;
+    border-radius: 8px;
+}
+.backhomebtn:hover {
+    background-color: black;
+    border-color: black;
+}
+.longrounddiv {
+    position: relative;
+    padding: 20px;
+    background-color: rgba(0, 29, 48, 0.70);
+    border-radius: 15px;
+    color: white;
+    width: 79vw;
+    font-size: 15px;
+    border: 3px solid rgba(0, 29, 48, 0.70);
+    margin-top: 1%;
+}
+.deletebutton{
+    position: sticky;
+    padding: 20px;
+    margin-top: 9px;
+    background-color: rgba(0, 29, 48, 0.70);
+    border-radius: 15px;
+    color: white;
+    font-size: 30px;
+    width: 6vw;
+    border: 3px solid rgba(0, 29, 48, 0.70);
+}
+.longrounddiv:hover {
+    border: 3px solid black;
+}
+.contentleft {
+    float: left;
+    width: 70%;
+    text-align: left;
+}
+
+.contentright {
+    float: right;
+    width: 30%;
+}
+
+.contentright p {
+    text-align: right;
+}
+  .flexcontainer > button {
+    height: 150px;
+}
+
+html {
+    ::-webkit-scrollbar { width: 15px; height: 2px;}
+    ::-webkit-scrollbar-button {  display: none;}
+    ::-webkit-scrollbar-track { background-color: rgba(255, 255, 255, 0.001);}
+    ::-webkit-scrollbar-track-piece { background-color: rgb(255, 255, 255, 0.001);}
+    ::-webkit-scrollbar-thumb { height: 40px; background-color: black;border-radius: 15px;}
+    ::-webkit-scrollbar-corner { background-color: #000000;}
+    ::-webkit-resizer { display: none;}
+  }
+  .xp-bar-container {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.urxp {
+    margin-left: 55%;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.progress {
+    flex: 1;
+    height: 25px;
+    width: 25%;
+    border-radius: 5px;
+    margin-top: 3px;
+    position: absolute;
+    margin-left: 15%;
+}
+.progress-bar-animated {
+    background-color: rgba(0, 77, 128, 0.95);
+}
+
+.progress-bar {
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+    background-color: rgb(0, 52, 86, 0.95);
+    border-radius: 5px;
+}
+
+progress::-moz-progress-bar {
+    background-color: rgb(0, 52, 86, 0.95);
+    border-radius: 5px;
+}
+
+progress::-ms-fill {
+    background-color: rgb(0, 52, 86, 0.95);
+    border-radius: 5px;
+}

@@ -51,6 +51,12 @@ try {
                 <td>' . (isset($_POST['game']) && $gameData ? $gameData['doporucena_graficka_karta'] : '') . '</td>
                 <td>' . (isset($_POST['game']) && $gameData ? $gameData['min_graficka_karta'] : '') . '</td>
             </tr>
+            <tr>
+                <td>Grafická karta:</td>
+                <td>' . ($userId && $hardwareData ? $hardwareData[0]['operacni_system'] : 'Chybí přihlášení nebo registrace HW!') . '</td>
+                <td>' . (isset($_POST['game']) && $gameData ? $gameData['doporuceny_os'] : '') . '</td>
+                <td>' . (isset($_POST['game']) && $gameData ? $gameData['min_os'] : '') . '</td>
+            </tr>
         </table>';
 } catch (PDOException $e) {
     echo "Chyba při připojování k databázi: " . $e->getMessage();

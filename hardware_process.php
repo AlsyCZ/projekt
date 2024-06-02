@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO hardware (uzivatel_id, procesor, ram, graficka_karta, zakladni_deska) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO hardware (uzivatel_id, procesor, ram, graficka_karta, operacni_system) VALUES (?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$userId, $cpu, $ram, $gpu, $mobo]);
 

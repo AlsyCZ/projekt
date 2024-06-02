@@ -3,6 +3,30 @@ session_start();
 $loggedInUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+
+$host = 'localhost';
+$dbname = 'Project';
+$user = 'postgres';
+$password_db = '4wnsdXJ1';
+
+try {
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $current_xp = 0;
+    if ($loggedInRole == 'user') {
+        $sql = "SELECT xp FROM uzivatele WHERE id = :userId";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result !== false) {
+            $current_xp = $result['xp'];
+        }
+    }
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,14 +49,19 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
         }
     </script>
 </head>
-<style>
-    
-
-</style>
 <body>
 <div class="faded-background"></div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand hardwarehub" href="index.php">HardwareHub</a>
+<?php
+if ($loggedInRole == 'user') {
+    echo '<div class="xp-bar-container">';
+    echo '<label for="xp" class="urxp">Tvoje XP:</label>';
+    echo '<div class="progress">';
+    echo '<div class="progress-bar progress-bar-striped progress-bar-animated xp-bar" role="progressbar" aria-valuenow="' . $current_xp . '" aria-valuemin="0" aria-valuemax="100" style="width: ' . $current_xp . '%;"></div></div>';
+    echo '</div>';
+}
+?>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -178,8 +207,8 @@ try {
             <th>Grafická karta</th>
             <td>' . $hardwareData[0]['graficka_karta'] . '</td>
         </tr><tr>
-            <th>Základní deska</th>
-            <td>' . $hardwareData[0]['zakladni_deska'] . '</td>
+            <th>Operační systém</th>
+            <td>' . $hardwareData[0]['operacni_system'] . '</td>
         </tr>';
     }
     if ($userId && !$hardwareData){
@@ -225,7 +254,10 @@ try {
         </tr><tr>
             <th>Role</th>
             <td>' . $hardwareData[0]['role'] . '</td>
-        </tr>';
+        </tr><tr>
+        <th>XP</th>
+        <td>' . $hardwareData[0]['xp'] .'</td>
+    </tr>';
     } 
 } catch (PDOException $e) {
     echo "Chyba při připojování k databázi: " . $e->getMessage();
@@ -233,7 +265,6 @@ try {
 ?>
 </table>
 </div>
-
     <button class="btn btn-primary btn1" onclick="redirectToPorovnavani()">Začni porovnávat</button>
     <div class="containeros">
         <button class="btn btn-info btn2" onclick="redirectToForum()">Naše fórum</button>

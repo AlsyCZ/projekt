@@ -19,13 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = "
-    INSERT INTO hardware (uzivatel_id, procesor, ram, graficka_karta, zakladni_deska)
-    VALUES (?, ?, ?, ?, ?)
-    ON CONFLICT (uzivatel_id) DO UPDATE SET
+        INSERT INTO hardware (uzivatel_id, procesor, ram, graficka_karta, operacni_system)
+        VALUES (?, ?, ?, ?, ?)
+        ON CONFLICT (uzivatel_id) DO UPDATE SET
         procesor = EXCLUDED.procesor,
         ram = EXCLUDED.ram,
         graficka_karta = EXCLUDED.graficka_karta,
-        zakladni_deska = EXCLUDED.zakladni_deska
+        operacni_system = EXCLUDED.operacni_system
 ";
 
         $stmt = $pdo->prepare($sql);
