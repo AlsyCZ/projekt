@@ -16,7 +16,7 @@ body {
     margin-left: 5%;
     width: 90%;
     margin-top: 1%;
-    height: 800px;
+    height: 86vh;
 }
 
 .search-container {
@@ -28,10 +28,10 @@ body {
 .flexcontainer {
     display: grid;
     position: absolute;
-    top: 10%;
+    top: 11%;
     width: 90%;
     left: 5%;
-    max-height: 700px;
+    max-height: 74vh;
     grid-template-columns: auto;
     gap: 20px;
     overflow-y: auto;

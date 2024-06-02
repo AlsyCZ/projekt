@@ -254,10 +254,7 @@ try {
         </tr><tr>
             <th>Role</th>
             <td>' . $hardwareData[0]['role'] . '</td>
-        </tr><tr>
-        <th>XP</th>
-        <td>' . $hardwareData[0]['xp'] .'</td>
-    </tr>';
+        </tr>';
     } 
 } catch (PDOException $e) {
     echo "Chyba při připojování k databázi: " . $e->getMessage();

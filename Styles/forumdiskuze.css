@@ -15,7 +15,7 @@ body {
     border-radius: 10px;
     margin-left: 5%;
     width: 90%;
-    height: 800px;
+    height: 85vh;
     margin-top: 1%;
 }
 .navbar-light .navbar-brand  {
@@ -86,7 +86,7 @@ body {
     background-color: black;
     border: 3px solid black;
     font-size: 25px;
-    height: 7.5%;
+    height: 9%;
     z-index: 999;
 }
 
@@ -94,7 +94,7 @@ body {
     position: absolute;
     top: 15%;
     width: 98.5%;
-    height: 600px;
+    height: 60vh;
     overflow-y: auto;
 }
 

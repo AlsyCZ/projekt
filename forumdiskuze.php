@@ -208,7 +208,7 @@ if (isset($_GET['add_div'])) {
 </div> 
 <?php
 if (empty($userId)) {
-        echo "<p style='color: red;float:right;margin-top:46%'>Pro odeslání komentáře se musíte přihlásit.</p>";
+        echo "<p style='color: red;float:right;margin-top:34%'>Pro odeslání komentáře se musíte přihlásit.</p>";
     }
 ?>
     <div class="addcomments">   
