@@ -1,3 +1,7 @@
+<?php
+session_start();
+$userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +58,12 @@
                 <label class="choosegametext" for="obsah">Obsah diskuze:</label>
                 <textarea class="form-control" name="obsahinp" rows="4" required></textarea>
             </div>
-            <button type="submit" class="backhomebtn">Vytvoř diskuzi</button>
+            <?php
+if (empty($userId)) {
+        echo "<p style='color: red;float:right;'>Pro vytvoření diskuze se musíte přihlásit.</p>";
+    }
+?>
+            <button type="submit" class="backhomebtn" <?php echo empty($userId) ? 'disabled' : ''; ?> >Vytvoř diskuzi</button>
             
         </form>
     </div>
