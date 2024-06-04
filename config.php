@@ -2,5 +2,5 @@
 $host = 'localhost';
 $dbname = 'Project';
 $user = 'postgres';
-$password_db = 'XXXXXXXX';
+$password_db = '4wnsdXJ1';
 ?>
