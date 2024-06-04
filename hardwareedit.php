@@ -168,23 +168,6 @@ $(document).ready(function() {
             }
         });
 
-        inp.on("keydown", function(e) {
-            var x = $(this).siblings('.autocomplete-items');
-            if (x.length) x = x.find('div');
-            if (e.keyCode == 40) {
-                currentFocus++;
-                addActive(x);
-            } else if (e.keyCode == 38) {
-                currentFocus--;
-                addActive(x);
-            } else if (e.keyCode == 13) {
-                e.preventDefault();
-                if (currentFocus > -1) {
-                    if (x) x.eq(currentFocus).click();
-                }
-            }
-        });
-
         function addActive(x) {
             if (!x) return false;
             removeActive(x);
