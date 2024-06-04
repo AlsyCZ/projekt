@@ -12,7 +12,7 @@ This is my school project. It's a local website which is connected to database. 
 
 
 ## Requirements
-If you want to run this project you need to replace the folowing code below with your database connection in a file which connects to database.
+If you want to run this project you need to replace the folowing code below with your database connection in a config file which connects to database.
 
 - $host = 'localhost';
 
