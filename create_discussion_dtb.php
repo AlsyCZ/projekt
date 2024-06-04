@@ -1,11 +1,8 @@
 <?php
 require_once 'xp_system.php';
+require_once 'config.php';
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $host = 'localhost';
-    $dbname = 'Project';
-    $user = 'postgres';
-    $password_db = '4wnsdXJ1';
 
     // Získání dat z formuláře
     $nazev = $_POST['nazevinp'];

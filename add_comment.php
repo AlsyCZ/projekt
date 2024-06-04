@@ -1,10 +1,7 @@
 <?php
 require_once 'xp_system.php';
+require_once 'config.php';
 session_start();
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = $_POST['comment'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once 'config.php';
 $loggedInUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
@@ -125,10 +125,6 @@ if (isset($_GET['add_div'])) {
     <div class="uidiv">
         <button type="submit" class="backhomebtn2" onclick="redirectToForum()">Zpět</button>
         <?php
-            $host = 'localhost';
-            $dbname = 'Project';
-            $user = 'postgres';
-            $password_db = '4wnsdXJ1';
 
             try {
                 $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
@@ -153,10 +149,6 @@ if (isset($_GET['add_div'])) {
     </div>
         <div class="comments" id="comments">
             <?php
-            $host = 'localhost';
-            $dbname = 'Project';
-            $user = 'postgres';
-            $password_db = '4wnsdXJ1';
 
             try {
                 $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);

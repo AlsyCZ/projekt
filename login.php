@@ -34,15 +34,10 @@
                     </div>
                     <?php
 session_start();
-
+require_once 'config.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
-
-    $host = 'localhost';
-    $dbname = 'Project';
-    $user = 'postgres';
-    $password_db = '4wnsdXJ1';
 
     try {
         $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);

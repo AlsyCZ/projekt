@@ -1,5 +1,6 @@
 <?php
 require_once 'xp_system.php';
+require_once 'config.php';
 session_start();
 
 $discussionId = $_POST['discussion_id'];
@@ -8,11 +9,6 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 
 $currentDate = date('Y-m-d H:i:s');
-
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);

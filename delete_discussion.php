@@ -1,11 +1,7 @@
 <?php
 session_start();
-
+require_once 'config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['discussion_id'])) {
-    $host = 'localhost';
-    $dbname = 'Project';
-    $user = 'postgres';
-    $password_db = '4wnsdXJ1';
 
     try {
         $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);

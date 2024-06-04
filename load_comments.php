@@ -1,10 +1,9 @@
 <?php
 session_start();
+require_once "function.html";
+require_once 'config.php';
 $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
+$loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
@@ -21,6 +20,10 @@ try {
     if ($comments) {
         foreach ($comments as $comment) {
             echo '<div class="comment">';
+            echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />';
+            if (!empty($loggedInRole) && ($loggedInRole === 'admin' || $loggedInRole === 'moderátor')) {
+                echo '<i class="fas fa-trash delete-comment-icon" style="font-size: 20px; cursor: pointer;" onclick="deleteComment(' . $comment['id'] . ')"></i>';
+            }
             echo '<img src="user_icon.png" alt="User Image" width="50px" height="50px">';
             echo '<p><strong>' . $comment['jmeno'] . '</strong> napsal(a) ' . $comment['datum'] . ': ' . $comment['obsah'] . '</p>';
             echo '</div>';

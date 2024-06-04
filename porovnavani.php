@@ -1,13 +1,10 @@
 <?php
 session_start();
+require_once 'config.php';
 $loggedInUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
@@ -45,7 +42,6 @@ try {
         function redirectToPorovnavani() {
             window.location.href = 'porovnavani.php';
         }
-        
     </script>
 </head>
 <style>

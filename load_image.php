@@ -1,9 +1,5 @@
 <?php
-
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
+require_once 'config.php';
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);

@@ -1,14 +1,9 @@
 <?php
 session_start();
+require_once 'config.php';
 $loggedInUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
-
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
-
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -127,11 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $host = 'localhost';
-    $dbname = 'Project';
-    $user = 'postgres';
-    $password_db = '4wnsdXJ1';
-
     try {
         $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -180,11 +170,6 @@ echo '</div>';
 <table>
 <?php
 
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
-
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -227,11 +212,6 @@ try {
     ?>
 <table>
 <?php
-
-$host = 'localhost';
-$dbname = 'Project';
-$user = 'postgres';
-$password_db = '4wnsdXJ1';
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);

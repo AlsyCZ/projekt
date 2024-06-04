@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpu = $_POST["cpu"];
@@ -7,11 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobo = $_POST["mobo"];
     $ram = $_POST["ram"];
     $userId = $_SESSION['user_id'];
-
-    $host = 'localhost';
-    $dbname = 'Project';
-    $user = 'postgres';
-    $password_db = '4wnsdXJ1';
 
     try {
         $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
