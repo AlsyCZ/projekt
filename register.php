@@ -18,7 +18,6 @@
 <div class="col-md-6 center-container">
     <div class="container mt-5">
         <div class="row justify-content-center">
-            
                 <h2 class="textik">Registrační formulář</h2>
                 <form class="form" action="registrace.php" method="post">
                     <div class="form-group">

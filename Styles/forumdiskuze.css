@@ -26,6 +26,17 @@ body {
     font-size: 1.25rem;
     margin-top: -3%;
 }
+.custom-dropdown {
+  background-color: #000;
+}
+.custom-dropdown a {
+  color: #fff;
+  font-size: 19px;
+}
+.custom-dropdown a:hover {
+  background-color: #fff;
+  color: #000;
+}
 .navbar-light:hover .navbar-brand:hover {
     color: white;
 }

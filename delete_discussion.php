@@ -4,7 +4,7 @@ require_once 'config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['discussion_id'])) {
 
     try {
-        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         $sql_comments = "DELETE FROM komentare_na_foru WHERE diskuze_id = :discussion_id";

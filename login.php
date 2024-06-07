@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     try {
-        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = "SELECT * FROM uzivatele WHERE jmeno = ? LIMIT 1";

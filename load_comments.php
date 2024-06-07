@@ -6,7 +6,7 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 $loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 
 try {
-    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $gameId = isset($_POST['gameId']) ? $_POST['gameId'] : '';
     $sql = "SELECT komentare_pod_strankou.*, uzivatele.jmeno

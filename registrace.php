@@ -1,13 +1,22 @@
 <?php
 require_once 'config.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
     try {
-        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $checkUserStmt = $pdo->prepare("SELECT COUNT(*) FROM uzivatele WHERE jmeno = ? OR email = ?");
+        $checkUserStmt->execute([$username, $email]);
+        $rowCount = $checkUserStmt->fetchColumn();
+        if ($rowCount > 0) {
+            echo "Jméno nebo e-mail již existuje v databázi.";
+            exit();
+        }
 
         $sql = "INSERT INTO uzivatele (jmeno, email, heslo, role) VALUES (?, ?, ?, 'user')";
         $stmt = $pdo->prepare($sql);

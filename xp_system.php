@@ -36,7 +36,8 @@ function update_xp($pdo, $user_id, $new_xp) {
     $stmt->execute([$new_xp, $user_id]);
 
     if ($new_xp >= 100) {
-        update_user_role($pdo, $user_id, 'moderátor');
+        
+        //update_user_role($pdo, $user_id, 'moderátor');
     }
 }
 

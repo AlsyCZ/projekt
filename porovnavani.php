@@ -7,7 +7,7 @@ $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 
 
 try {
-    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $current_xp = 0;
@@ -76,6 +76,14 @@ if ($loggedInRole == 'user') {
                 echo '<div class="dropdown-menu dropdown-menu-right custom-dropdown" aria-labelledby="userDropdown">';
                 echo '<a class="dropdown-item" href="logout.php">Odhlásit se</a>';
                 echo '<a class="dropdown-item" href="hardwareedit.php">Můj hardware</a>';
+                echo '<a class="dropdown-item" href="user_messages.php">Moje zprávy</a>';
+                if($loggedInRole == "admin"){
+                    echo '<a class="dropdown-item" href="user_management.php">User management</a>';
+                    echo '<a class="dropdown-item" href="zadosti_moderator.php">Žádosti o moderátora</a>';
+                }
+                if($loggedInRole == "moderátor"){
+                    echo '<a class="dropdown-item" href="zadosti_moderator.php">Žádosti o moderátora</a>';
+                }
                 echo '</div>';
                 echo '</li>';
             } else {

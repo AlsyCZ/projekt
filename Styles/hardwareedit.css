@@ -52,6 +52,17 @@
             background-color: black;
             border-color: black;
         }
+        .custom-dropdown {
+            background-color: #000;
+        }
+        .custom-dropdown a {
+            color: #fff;
+            font-size: 19px;
+        }
+        .custom-dropdown a:hover {
+            background-color: #fff;
+            color: #000;
+        }
         .submit {
             border-color: black;
             background-color:black;

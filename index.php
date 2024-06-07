@@ -5,7 +5,7 @@ $loggedInUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $loggedInRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 try {
-    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $current_xp = 0;
@@ -20,7 +20,8 @@ try {
         }
     }
 } catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
+    error_log('Connection failed: ' . $e->getMessage());
+    die('Database connection failed');
 }
 ?>
 <!DOCTYPE html>
@@ -74,6 +75,14 @@ if ($loggedInRole == 'user') {
                 echo '<div class="dropdown-menu dropdown-menu-right custom-dropdown" aria-labelledby="userDropdown">';
                 echo '<a class="dropdown-item" href="logout.php">Odhlásit se</a>';
                 echo '<a class="dropdown-item" href="hardwareedit.php">Můj hardware</a>';
+                echo '<a class="dropdown-item" href="user_messages.php">Moje zprávy</a>';
+                if($loggedInRole == "admin"){
+                    echo '<a class="dropdown-item" href="user_management.php">User management</a>';
+                    echo '<a class="dropdown-item" href="zadosti_moderator.php">Žádosti o moderátora</a>';
+                }
+                if($loggedInRole == "moderátor"){
+                    echo '<a class="dropdown-item" href="zadosti_moderator.php">Žádosti o moderátora</a>';
+                }
                 echo '</div>';
                 echo '</li>';
             } else {
@@ -123,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     try {
-        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = "SELECT * FROM uzivatele WHERE jmeno = ? LIMIT 1";
@@ -169,9 +178,8 @@ echo '</div>';
     ?>
 <table>
 <?php
-
 try {
-    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT * FROM hardware WHERE uzivatel_id = ?";
@@ -201,7 +209,8 @@ try {
         Učiníte tak v menu, když rozkliknete uživatele a dáte můj hardware. </h2>";
     }
 } catch (PDOException $e) {
-    echo "Chyba při připojování k databázi: " . $e->getMessage();
+    error_log("Chyba při připojování k databázi: " . $e->getMessage());
+    echo '<p style="color:red;">Chyba při získávání hardwaru</p>';
 }
 ?>
 </table>
@@ -214,7 +223,7 @@ try {
 <?php
 
 try {
-    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT * FROM uzivatele WHERE id = ?";
@@ -237,7 +246,8 @@ try {
         </tr>';
     } 
 } catch (PDOException $e) {
-    echo "Chyba při připojování k databázi: " . $e->getMessage();
+    error_log("Chyba při připojování k databázi: " . $e->getMessage());
+    echo '<p style="color:red;">Chyba při získávání uživatelských údajů</p>';
 }
 ?>
 </table>

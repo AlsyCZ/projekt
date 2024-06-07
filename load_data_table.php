@@ -2,7 +2,7 @@
 require_once 'config.php';
 
 try {
-    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password_db);
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     session_start();
