@@ -33,7 +33,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="Styles/porovnani.css">
-    <title>Index</title>
+    <title>HardwareHub</title>
     <script>
         function redirectToForum() {
             window.location.href = 'forum.php';

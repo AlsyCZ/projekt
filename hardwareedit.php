@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles/hardwareedit.css">
-    <title>Register</title>
+    <title>HardwareHub</title>
     <script>
         function redirectToHomePage() {
             window.location.href = 'index.php';

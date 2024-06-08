@@ -41,7 +41,7 @@ if (isset($_GET['add_div'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="Styles/forumedit.css">
     
-    <title>Index</title>
+    <title>HardwareHub</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         function redirectToForum() {
