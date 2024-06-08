@@ -10,6 +10,9 @@ if ($loggedInRole != 'admin' && $loggedInRole != 'moderátor') {
     echo "Nemáte oprávnění pro zobrazení této stránky.";
     exit;
 }
+
+$errorMessages = [];
+
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -19,23 +22,27 @@ try {
         $action = $_POST['action'];
         $reason = $_POST['reason'];
 
-        if ($action == 'approve') {
-            $sql = "UPDATE uzivatele SET role = 'moderátor', moderator_request = TRUE WHERE id = ?";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$user_id]);
-
-            $message = "Gratulujeme! Byli jste povýšeni na moderátora. Zpráva: " . htmlspecialchars($reason);
+        if ($action == 'reject' && empty($reason)) {
+            $errorMessages[$user_id] = "Při zamítnutí je nutné uvést důvod.";
         } else {
-            $sql = "UPDATE uzivatele SET moderator_request = TRUE WHERE id = ?";
+            if ($action == 'approve') {
+                $sql = "UPDATE uzivatele SET role = 'moderátor', moderator_request = TRUE WHERE id = ?";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$user_id]);
+
+                $message = "Gratulujeme! Byli jste povýšeni na moderátora. Zpráva: " . htmlspecialchars($reason);
+            } else {
+                $sql = "UPDATE uzivatele SET moderator_request = TRUE WHERE id = ?";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$user_id]);
+
+                $message = "Vaše žádost o moderátora byla zamítnuta. Důvod: " . htmlspecialchars($reason);
+            }
+
+            $sql = "INSERT INTO user_messages (user_id, message) VALUES (?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$user_id]);
-
-            $message = "Vaše žádost o moderátora byla zamítnuta. Důvod: " . htmlspecialchars($reason);
+            $stmt->execute([$user_id, $message]);
         }
-
-        $sql = "INSERT INTO user_messages (user_id, message) VALUES (?, ?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$user_id, $message]);
     }
 
     $sql = "SELECT id, jmeno, role, xp FROM uzivatele WHERE xp >= 100 AND role != 'moderátor' AND jmeno != 'Admin' AND moderator_request = FALSE";
@@ -109,6 +116,9 @@ try {
             echo '<textarea name="reason" class="formcontrol" placeholder="Důvod zamítnutí (povinné při zamítnutí)"></textarea>';
             echo '<button type="submit" name="action" value="approve" class="submitdwn">Approve</button>';
             echo '<button type="submit" name="action" value="reject" class="submitdwn1">Reject</button>';
+            if (isset($errorMessages[$user['id']])) {
+                echo '<p style="color: red;">' . $errorMessages[$user['id']] . '</p>';
+            }
             echo '</form>';
             echo '</div>';
         }
