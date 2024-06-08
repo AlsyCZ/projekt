@@ -30,7 +30,7 @@ try {
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$user_id]);
 
-                $message = "Gratulujeme! Byli jste povýšeni na moderátora. Zpráva: " . htmlspecialchars($reason);
+                $message = "Gratulujeme! Byli jste povýšeni na moderátora.";
             } else {
                 $sql = "UPDATE uzivatele SET moderator_request = TRUE WHERE id = ?";
                 $stmt = $pdo->prepare($sql);
