@@ -248,7 +248,7 @@ if ($loggedInRole == 'user') {
 </div>
 <?php
 if (empty($userId)) {
-        echo "<p style='color: red;float:right;margin-right:5%'>Pro odeslání komentáře se musíte přihlásit.</p>";
+        echo "<p style='color: red;float:right;margin-right:6%'>Pro odeslání komentáře se musíte přihlásit.</p>";
     }
 ?>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
