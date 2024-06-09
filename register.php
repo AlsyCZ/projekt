@@ -11,13 +11,14 @@
         function redirectToHomePage() {
             window.location.href = 'login.php';
         }
-</script>
+    </script>
 </head>
+
 <body>
 <div class="page-transition">
-<div class="col-md-6 center-container">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
+    <div class="col-md-6 center-container">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
                 <h2 class="textik">Registrační formulář</h2>
                 <form class="form" action="registrace.php" method="post">
                     <div class="form-group">
@@ -36,6 +37,13 @@
                     </div>
                     <button type="submit" id="submit-button" class="btn btn-primary btn-block submit" onclick="checkPasswordStrength()">Registrace</button>
                 </form>
+                <?php
+                session_start();
+                if (isset($_SESSION['error'])) {
+                    echo '<p style="color: red; margin-left:30%;">' . $_SESSION["error"] . '</p>';
+                    unset($_SESSION['error']);
+                }
+                ?>
             </div>
         </div>
         <div class="text-center button-group">
@@ -45,31 +53,32 @@
     </div>
 </div>
 <script>
-var myInput = document.getElementById("password");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
+    var myInput = document.getElementById("password");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
 
-myInput.onkeyup = function() {
-  var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-  }
-  
-  if(myInput.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-  }
-}
+    myInput.onkeyup = function () {
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        if (myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+    }
 </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

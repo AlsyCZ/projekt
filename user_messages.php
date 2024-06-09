@@ -61,7 +61,6 @@ try {
                 if($loggedInRole == "moderátor"){
                     echo '<a class="dropdown-item" href="zadosti_moderator.php">Žádosti o moderátora</a>';
                 }
-                echo '<a class="dropdown-item" href="user_messages.php">Moje zprávy</a>';
                 echo '</div>';
                 echo '</li>';
             } else {

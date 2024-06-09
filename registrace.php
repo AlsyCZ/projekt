@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -14,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $checkUserStmt->execute([$username, $email]);
         $rowCount = $checkUserStmt->fetchColumn();
         if ($rowCount > 0) {
-            echo "Jméno nebo e-mail již existuje v databázi.";
+            $_SESSION['error'] = "Jméno nebo e-mail již existuje v databázi.";
+            header('Location: register.php');
             exit();
         }
 
@@ -28,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userStmt->execute([$userId]);
         $user = $userStmt->fetch(PDO::FETCH_ASSOC);
 
-        session_start();
         $_SESSION['user_id'] = $userId;
         $_SESSION['username'] = $user['jmeno'];
         $_SESSION['role'] = $user['role'];
