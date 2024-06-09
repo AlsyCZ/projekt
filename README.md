@@ -18,7 +18,7 @@ If you want to run this project you need to replace the folowing code below with
 
 - $dbname = 'Project';
 
-- $user = 'postgres';
+- $dbuser = 'postgres';
 
 - $password_db = 'XXXXXXXX';
 
