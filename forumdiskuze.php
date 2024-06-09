@@ -233,11 +233,7 @@ if ($loggedInRole == 'user') {
 }
 ?>
 </div> 
-<?php
-if (empty($userId)) {
-        echo "<p style='color: red;float:right;margin-top:34%'>Pro odeslání komentáře se musíte přihlásit.</p>";
-    }
-?>
+
     <div class="addcomments">   
         <form method="post" action="add_commenttoforum.php">
             <input type="hidden" name="discussion_id" value="<?php echo $_GET['id']; ?>">
@@ -250,6 +246,11 @@ if (empty($userId)) {
         </form> 
     </div>
 </div>
+<?php
+if (empty($userId)) {
+        echo "<p style='color: red;float:right;margin-right:5%'>Pro odeslání komentáře se musíte přihlásit.</p>";
+    }
+?>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
