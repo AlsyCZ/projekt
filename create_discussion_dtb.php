@@ -4,7 +4,6 @@ require_once 'config.php';
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Získání dat z formuláře
     $nazev = $_POST['nazevinp'];
     $obsah = $_POST['obsahinp'];
     $uzivatel = isset($_SESSION['username']) ? $_SESSION['username'] : null;

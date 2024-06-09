@@ -34,11 +34,6 @@ function update_xp($pdo, $user_id, $new_xp) {
     $sql = "UPDATE uzivatele SET xp = ? WHERE id = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$new_xp, $user_id]);
-
-    if ($new_xp >= 100) {
-        
-        //update_user_role($pdo, $user_id, 'moderátor');
-    }
 }
 
 function update_user_role($pdo, $user_id, $role) {

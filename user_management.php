@@ -96,10 +96,9 @@ try {
                 echo '</div>';
                 echo '<div class="contentright">';
                 
-                // Create a form with a dropdown to update the user's role
                 echo '<form method="POST" action="update_role.php">';
                 echo '<input type="hidden" name="user_id" value="' . htmlspecialchars($user['id']) . '">';
-                if ($loggedInUsername != $user['jmeno']) { // Check if the logged in user is different from the current user
+                if ($loggedInUsername != $user['jmeno']) {
                     echo '<select class="dropdwn" name="role">';
                     echo '<option value="user"' . ($user['role'] == 'user' ? ' selected' : '') . '>User</option>';
                     echo '<option value="moderátor"' . ($user['role'] == 'moderátor' ? ' selected' : '') . '>Moderátor</option>';
