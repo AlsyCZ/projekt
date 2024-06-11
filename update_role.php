@@ -15,7 +15,7 @@ try {
         $user_id = $_POST['user_id'];
         $new_role = $_POST['role'];
 
-        $sql = "UPDATE uzivatele SET role = ? WHERE id = ?";
+        $sql = "UPDATE uzivatele SET role = ?, moderator_request = TRUE WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$new_role, $user_id]);
 
