@@ -231,3 +231,7 @@ html {
     ::-webkit-scrollbar-corner { background-color: rgb(1,28,48);}
     ::-webkit-resizer { display: none;}
   }
+  .currxp{
+    margin-left:26%;
+    margin-top: 0.6%;
+}

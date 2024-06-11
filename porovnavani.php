@@ -57,6 +57,7 @@ if ($loggedInRole == 'user') {
     echo '<div class="progress">';
     echo '<div class="progress-bar progress-bar-striped progress-bar-animated xp-bar" role="progressbar" aria-valuenow="' . $current_xp . '" aria-valuemin="0" aria-valuemax="100" style="width: ' . $current_xp . '%;"></div></div>';
     echo '</div>';
+    echo '<h3 class="currxp">' . $current_xp . '/100</h3>';
 }
 ?>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

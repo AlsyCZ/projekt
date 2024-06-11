@@ -82,3 +82,7 @@ body {
 #selectgame:focus, #selectgame:hover, #selectgame:active {
     background-color: #003456;
 }
+.currxp{
+    margin-left:26%;
+    margin-top: 0.6%;
+}
