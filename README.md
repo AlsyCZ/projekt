@@ -1,6 +1,6 @@
 
 # Welcome to my School project 
-This is my school project. It's a local website which is connected to database. My goal is to create user interface where you can simply compare your PC hardware with a hardware of each game in database also there will be forum for user communication.
+This was my school project. It's a local website which is connected to database. Goal was to create user interface where you can simply compare your PC hardware with a hardware of each game in database also there is forum for user communication.
 
 
 ## Build with
